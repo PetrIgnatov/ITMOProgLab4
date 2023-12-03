@@ -1,20 +1,21 @@
-package ProgrammingLab3;
+package ru.itmo.prog.lab4.classes;
+import ru.itmo.prog.lab4.interfaces.*;
 import java.util.*;
 
 public class Location {
 	private String name;
-	private ArrayList<Furniture> furniture = new ArrayList<Furniture>();
+	private ArrayList<LocationEntity> entities = new ArrayList<LocationEntity>();
 	public Location(String name) {
 		this.name = name;
 	}
-	public void addFurniture(Furniture furniture) {
-		this.furniture.add(furniture);
+	public void addEntity(LocationEntity entity) {
+		this.entities.add(entity);
 	}
-	public Furniture FindbyName(String name) {
-		for (Furniture f : furniture) {
-			if (f.getName() == name)
+	public LocationEntity FindbyName(String name) {
+		for (LocationEntity e : entities) {
+			if (e.getName() == name)
 			{
-				return f;
+				return e;
 			}
 		}
 		return null;
@@ -41,8 +42,8 @@ public class Location {
 	@Override
 	public int hashCode() {
 		int hash = name.hashCode();
-		for (Furniture f : furniture) {
-			hash = (hash*f.hashCode())%1000000001;
+		for (LocationEntity e : entities) {
+			hash = (hash*e.hashCode())%1000000001;
 		}
 		return hash;
 	}

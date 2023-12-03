@@ -1,6 +1,7 @@
-package ProgrammingLab3;
+package ru.itmo.prog.lab4.classes;
+import ru.itmo.prog.lab4.interfaces.*;
 
-public class Window implements Furniture {
+public class Window implements LocationEntity {
 	private boolean isOpen = false;
 	public Window(boolean isOpen)
 	{

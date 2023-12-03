@@ -1,6 +1,13 @@
-package ProgrammingLab3;
+package ru.itmo.prog.lab4.classes;
+import ru.itmo.prog.lab4.interfaces.*;
 
-public class Time implements Moving {
+public class Time implements Moveable {
+	public static enum TimeEnum {
+		MORNING,
+		DAY,
+		EVENING,
+		NIGHT;
+	}
 	private TimeEnum curTime = TimeEnum.EVENING;
 	@Override
 	public void move()

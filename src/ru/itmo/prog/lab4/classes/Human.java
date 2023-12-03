@@ -1,29 +1,37 @@
-package ProgrammingLab3;
+package ru.itmo.prog.lab4.classes;
+import ru.itmo.prog.lab4.interfaces.*;
 
-public abstract class Human implements Moving {
+public abstract class Human implements Moveable {
 	protected String name;
-	protected double spd;
-	protected Location loc;
+	protected double speed;
+	protected Location location;
 	protected Time timeline;
 	public Human(String name, Time timeline) {
 		this.name = name;
 		this.timeline = timeline;
 	}
 	public final void interactWith(String name) {
-		Furniture f = loc.FindbyName(name);
-		if (f != null)
+		LocationEntity e = this.location.FindbyName(name);
+		if (e != null)
 		{
 			System.out.println(this.name + " взаимодействует с " + name);
-			f.interact();
+			e.interact();
 		}
 		else
 		{
 			System.out.println("Предмет не найден");
 		}
 	}
-	public final void runTo(Location loc) {
-		this.loc = loc;
-		System.out.println(name + " прибежал/а в " + loc.getName());
+	public void moveTo(Location location) throws TooDarkToWalkException {
+		if (timeline.getTime() == Time.TimeEnum.NIGHT)
+		{
+			throw new TooDarkToWalkException("Слишком поздно и темно, лучше никуда не ходить");
+		}
+		else
+		{
+			this.location = location;
+			System.out.println(name + " пришел/ла в " + location.getName());
+		}
 	}
 	public final void cry() {
 		System.out.println(name + " плачет");
@@ -38,7 +46,7 @@ public abstract class Human implements Moving {
 	}
 	@Override
 	public int hashCode() {
-		return (name.hashCode()*(int)spd*timeline.hashCode())%1000000001; 
+		return (name.hashCode()*(int)speed*timeline.hashCode())%1000000001; 
 	}
 	@Override
 	public boolean equals(Object other) {
@@ -49,7 +57,7 @@ public abstract class Human implements Moving {
 			return false;
 		}
 		Human human = (Human) other;
-		return (this.name == human.name) && (this.spd == human.spd) && (this.timeline.equals(human.timeline));
+		return (this.name == human.name) && (this.speed == human.speed) && (this.timeline.equals(human.timeline));
 	}
 	@Override
 	public String toString() {
