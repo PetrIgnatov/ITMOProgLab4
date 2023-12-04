@@ -5,6 +5,9 @@ import java.util.*;
 public class Location {
 	private String name;
 	private ArrayList<LocationEntity> entities = new ArrayList<LocationEntity>();
+	public Location() {
+		this.name = "Unnamed location";
+	}
 	public Location(String name) {
 		this.name = name;
 	}

@@ -8,7 +8,13 @@ public class Time implements Moveable {
 		EVENING,
 		NIGHT;
 	}
-	private TimeEnum curTime = TimeEnum.EVENING;
+	private TimeEnum curTime;
+	public Time() {
+	  curTime = TimeEnum.MORNING;
+	}
+	public Time(TimeEnum startTime) {
+	  curTime = startTime;
+	}
 	@Override
 	public void move()
 	{

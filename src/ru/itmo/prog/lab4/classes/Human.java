@@ -6,6 +6,18 @@ public abstract class Human implements Moveable {
 	protected double speed;
 	protected Location location;
 	protected Time timeline;
+	public Human() {
+	  this.name = "Unnamed";
+	  this.timeline = null;
+	}
+	public Human(String name) {
+	  this.name = name;
+	  this.timeline = null;
+	}
+	public Human(Time timeline) {
+	  this.name = "Unnamed";
+	  this.timeline = timeline;
+	}
 	public Human(String name, Time timeline) {
 		this.name = name;
 		this.timeline = timeline;

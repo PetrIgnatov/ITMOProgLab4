@@ -1,6 +1,15 @@
 package ru.itmo.prog.lab4.classes;
 
 public class Child extends Human {
+  public Child() {
+    super("Unnamed Child");
+  }
+  public Child(String name) {
+    super(name);
+  }
+  public Child(Time timeline) {
+    super(timeline);
+  }
 	public Child(String name, Time timeline) {
 		super(name, timeline);
 	}

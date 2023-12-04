@@ -9,8 +9,7 @@ public class GhostWithEngine extends Human {
 		public void getCharged(double addLevel) {
 			this.fuelLevel += addLevel;
 		}
-		public void work()
-		{
+		public void work() {
 			if (this.fuelLevel <= 0.0) {
 				throw new FuelError("Слишком мало топлива, двигатель не может быть заведен");
 			}
@@ -19,6 +18,21 @@ public class GhostWithEngine extends Human {
 	}
 	protected double jamLevel;
 	protected Engine engine;
+	public GhostWithEngine() {
+	  super("Unnamed Ghost with Engine");
+	  this.engine = new Engine(0.0);
+		this.jamLevel = 0.0;
+  }
+  public GhostWithEngine(String name) {
+	  super(name);
+	  this.engine = new Engine(0.0);
+		this.jamLevel = 0.0;
+  }
+  public GhostWithEngine(Time timeline) {
+	  super(timeline);
+	  this.engine = new Engine(0.0);
+		this.jamLevel = 0.0;
+  }
 	public GhostWithEngine(String name, Time timeline) {
 		super(name, timeline);
 		this.engine = new Engine(0.0);
