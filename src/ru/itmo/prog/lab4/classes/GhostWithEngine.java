@@ -15,6 +15,25 @@ public class GhostWithEngine extends Human {
 			}
 			System.out.println("Двигатель заработал");
 		}
+		@Override
+	  public int hashCode() {
+		  return (int)(fuelLevel*10000); 
+	  }
+	  @Override
+	  public boolean equals(Object other) {
+		  if (other == this) {
+			  return true;
+		  }
+		  if (other == null || other.getClass() != this.getClass()) {
+			  return false;
+		  }
+		  Engine engine = (Engine) other;
+		  return (this.fuelLevel == engine.fuelLevel);
+	  }
+	  @Override
+	  public String toString() {
+		  return "Engine with fuelLevel " + String.valueOf(fuelLevel);
+	  }
 	}
 	protected double jamLevel;
 	protected Engine engine;
@@ -68,5 +87,24 @@ public class GhostWithEngine extends Human {
 	}
 	public void eatJam(double addLevel) {
 		jamLevel += addLevel;
+	}
+	@Override
+	public int hashCode() {
+		return (name.hashCode()*(int)speed*timeline.hashCode()*engine.hashCode()*(int)(jamLevel*10000))%1000000001; 
+	}
+	@Override
+	public boolean equals(Object other) {
+		if (other == this) {
+			return true;
+		}
+		if (other == null || other.getClass() != this.getClass()) {
+			return false;
+		}
+		GhostWithEngine ghost = (GhostWithEngine) other;
+		return ((this.name == ghost.name) && (this.speed == ghost.speed) && (this.timeline.equals(ghost.timeline)) && (this.engine.equals(ghost.engine)) && (this.jamLevel == ghost.jamLevel));
+	}
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 }

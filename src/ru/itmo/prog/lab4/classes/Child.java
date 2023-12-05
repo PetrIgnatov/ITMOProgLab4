@@ -43,4 +43,23 @@ public class Child extends Human {
 			System.out.println(this.name + " прибежал/а в " + location.getName());
     		}	
 	}
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+	@Override
+	public boolean equals(Object other) {
+		if (other == this) {
+			return true;
+		}
+		if (other == null || other.getClass() != this.getClass()) {
+			return false;
+		}
+		Child child = (Child) other;
+		return (this.name == child.name) && (this.speed == child.speed) && (this.timeline.equals(child.timeline));
+	}
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 }
