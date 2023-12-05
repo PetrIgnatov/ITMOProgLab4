@@ -1,6 +1,6 @@
-package ru.itmo.prog.lab4;
-import ru.itmo.prog.lab4.classes.*;
-import ru.itmo.prog.lab4.interfaces.*;
+package ru.se.ifmo.prog.lab4;
+import ru.se.ifmo.prog.lab4.classes.*;
+import ru.se.ifmo.prog.lab4.interfaces.*;
 
 public class Main {
 	public static void main(String[] args)

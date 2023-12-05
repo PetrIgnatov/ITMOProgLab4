@@ -1,5 +1,5 @@
-package ru.itmo.prog.lab4.classes;
-import ru.itmo.prog.lab4.interfaces.*;
+package ru.se.ifmo.prog.lab4.classes;
+import ru.se.ifmo.prog.lab4.interfaces.*;
 import java.util.*;
 
 public class Location {
