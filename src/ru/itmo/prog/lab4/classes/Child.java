@@ -20,8 +20,11 @@ public class Child extends Human {
 				this.duration = duration;
 			}
 		}
-		Studies studies = new Studies(3);
+		Studies studies = new Studies(4);
 		System.out.println(name + " учится");
+		if (studies.duration > 3) {
+			timeline.move();
+		}
 	}
 	public void thinkAboutHuman(Human human) {
 		System.out.println(name + " думает о " + human.name);
